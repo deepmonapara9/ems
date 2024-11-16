@@ -4,6 +4,7 @@
 
 * {
   color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;  
 }
 
 body {
@@ -12,4 +13,8 @@ body {
 
 body{
   background-color: #111;
+}
+
+#tasklist::-webkit-scrollbar {
+  display: none;
 }
