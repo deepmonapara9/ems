@@ -1,6 +1,7 @@
-import { useState } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useState } from "react";
 
-const Login = () => {
+const Login = ({handleLogin}) => {
 
   //state to store email and password
   const [email, setEmail] = useState("");
@@ -9,8 +10,11 @@ const Login = () => {
   //function to handle form submission
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("email is",email);
-    console.log("password is",password);
+    //passes the email and password to the parent component
+    handleLogin(email, password);
+    
+    // console.log("email is",email);
+    // console.log("password is",password);
     
     //you can reset the input fields after submitting the form
     setEmail("");
