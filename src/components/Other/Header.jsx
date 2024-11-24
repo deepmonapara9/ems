@@ -1,26 +1,27 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const Header = () => {
-  // const [username, setUsername] = useState("");
+const Header = (props) => {
+  const [username, setUsername] = useState("");
 
-  // if (!data) {
-  //   setUsername("Admin");
-  // } else {
-  //   setUsername(data.firstName);
-  // }
+  useEffect(() => {
+    if (!props.data) {
+      setUsername("Admin");
+    } else {
+      setUsername(props.data.firstName);
+    }
+  }, [props.data]);
 
   const logOutUser = () => {
     localStorage.setItem("loggedInUser", "");
-    // props.changeUser("");
-    window.location.reload()
+    props.changeUser("");
+    // window.location.reload()
   };
 
   return (
     <div className="flex items-end justify-between">
       <h1 className="text-2xl font-medium">
         Hello <br />
-        <span className="text-3xl font-semibold"> username 👋</span>
+        <span className="text-3xl font-semibold">{username} 👋</span>
       </h1>
       <button
         onClick={logOutUser}
